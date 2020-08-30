@@ -20,6 +20,8 @@ private:
 	float FireRate = 2.f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat", meta = (AllowPrivateAccess = "true"))
 	float FireRange = 500.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat", meta = (AllowPrivateAccess = "true"))
+	float TurretRotationSpeed = 5.f;
 
 	APawnTank* PlayerPawn;
 
@@ -36,5 +38,7 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void RotateTurret(FVector LookAtTarget) override;
 	
 };
