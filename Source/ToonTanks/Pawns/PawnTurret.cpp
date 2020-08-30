@@ -51,13 +51,23 @@ float APawnTurret::GetDistanceToPlayer()
 
 void APawnTurret::RotateTurret(FVector LookAtTarget) 
 {
+    // Get location of target
 	FVector LookAtTargetClean = FVector(LookAtTarget.X, LookAtTarget.Y, TurretMesh->GetComponentLocation().Z);
-	FVector StartLocation = TurretMesh->GetComponentLocation();
+	
+    // Get location of self
+    FVector StartLocation = TurretMesh->GetComponentLocation();
+
+    // Calculate turret rotation to target
 	FRotator TurretRotation = FVector(LookAtTargetClean - StartLocation).Rotation();
 
-    // float NewRotationYaw = FMath::Lerp(TurretMesh->GetComponentRotation().Yaw, TurretRotation.Yaw, GetWorld()->DeltaTimeSeconds * TurretRotationSpeed);
-    // FRotator NewRotation = FRotator(TurretRotation.Pitch, NewRotationYaw, TurretRotation.Roll);
+    // If turret is facing the target then return
+    float RotationDifference = TurretMesh->GetComponentRotation().Yaw - TurretRotation.Yaw;
+    if(FMath::Abs(RotationDifference) < 0.01)
+    {
+        return;
+    }
+
+    // Smoothly rotate turret to target direction
     FRotator NewRotation = FMath::Lerp(TurretMesh->GetComponentRotation(), TurretRotation, GetWorld()->DeltaTimeSeconds * TurretRotationSpeed);
-    UE_LOG(LogTemp, Warning, TEXT("%s"), *NewRotation.ToString());
     TurretMesh->SetWorldRotation(NewRotation);
 }
