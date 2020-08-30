@@ -1,0 +1,9 @@
+{
+	"files.exclude": {
+		"D:/Unreal Game Dev/repos/ToonTanks/.vscode": true,
+		"D:/Unreal Game Dev/repos/ToonTanks/Content": true,
+		"D:/Unreal Game Dev/repos/ToonTanks/DerivedDataCache": true,
+		"D:/Unreal Game Dev/repos/ToonTanks/Intermediate": true,
+		"D:/Unreal Game Dev/repos/ToonTanks/Saved": true
+	}
+}
