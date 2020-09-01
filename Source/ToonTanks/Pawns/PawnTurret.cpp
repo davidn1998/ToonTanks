@@ -71,3 +71,9 @@ void APawnTurret::RotateTurret(FVector LookAtTarget)
     FRotator NewRotation = FMath::Lerp(TurretMesh->GetComponentRotation(), TurretRotation, GetWorld()->DeltaTimeSeconds * TurretRotationSpeed);
     TurretMesh->SetWorldRotation(NewRotation);
 }
+
+void APawnTurret::HandleDestruction() 
+{
+    Super::HandleDestruction();
+    Destroy();
+}

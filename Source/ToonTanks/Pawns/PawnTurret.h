@@ -39,6 +39,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	void RotateTurret(FVector LookAtTarget) override;
+	virtual void RotateTurret(FVector LookAtTarget) override;
+
+	virtual void HandleDestruction() override;
 	
 };
