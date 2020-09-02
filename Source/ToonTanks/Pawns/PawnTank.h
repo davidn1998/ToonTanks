@@ -29,6 +29,7 @@ private:
 	float RotateSpeed = 100.f;
 
 	APlayerController* PlayerControllerRef;
+	bool bIsPlayerAlive = true;
 	
 protected:
 	// Called when the game starts or when spawned
@@ -51,5 +52,7 @@ public:
 	void Rotate();
 
 	virtual void HandleDestruction() override;
+
+	bool GetIsPlayerAlive();
 	
 };
