@@ -30,6 +30,8 @@ private:
 public:	
 	// Sets default values for this pawn's properties
 	APawnBase();
+	
+	virtual void HandleDestruction();
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
@@ -37,5 +39,4 @@ protected:
 
 	virtual void RotateTurret(FVector LookAtTarget);
 	void Fire();
-	virtual void HandleDestruction();
 };
